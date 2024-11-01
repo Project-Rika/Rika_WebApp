@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Rika_WebApp.Models;
 using Rika_WebApp.ViewModels.Profile;
 using System.Diagnostics;
+using System.Text;
 using static System.Net.WebRequestMethods;
 
 namespace Rika_WebApp.Controllers
@@ -40,14 +42,51 @@ namespace Rika_WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Details()
+        public async Task<IActionResult> Details(ProfileFormViewModel detailsViewModel)
         {
-            //göra denna sen på update branchen?
             if (ModelState.IsValid)
             {
-                
-            }
-            return View();
+				try
+				{
+					var userId = "u1"; //ta bort denna sen, ska hämtas från cookie(?)
+                    var updateModel = new UpdateUserModel
+                    {
+                        UserId = userId,
+                        FirstName = detailsViewModel.FirstName,
+                        LastName = detailsViewModel.LastName,
+                        Email = detailsViewModel.Email,
+                        Password = detailsViewModel.Password,
+                        Phonenumber = detailsViewModel.Phonenumber,
+                        ProfileImageUrl = detailsViewModel.ProfileImageUrl,
+                        Age = detailsViewModel.Age,
+                        Gender = detailsViewModel.Gender
+                    };
+
+					var json = new StringContent(JsonConvert.SerializeObject(updateModel), Encoding.UTF8, "application/json");
+					var response = await _http.PostAsync("https://localhost.se/api/UpdateUser", json);
+
+					if (response.IsSuccessStatusCode)
+					{
+						var userData = JsonConvert.DeserializeObject<UpdateUserModel>(await response.Content.ReadAsStringAsync());
+
+                        if (userData != null)
+                        {
+							detailsViewModel.FirstName = userData.FirstName;
+							detailsViewModel.LastName = userData.LastName;
+							detailsViewModel.Email = userData.Email;
+							detailsViewModel.Password = userData.Password;
+							detailsViewModel.Phonenumber = userData.Phonenumber;
+							detailsViewModel.ProfileImageUrl = userData.ProfileImageUrl;
+							detailsViewModel.Age = userData.Age;
+							detailsViewModel.Gender = userData.Gender;
+
+							return View(detailsViewModel);
+						}
+					}
+				}
+				catch (Exception ex) { Debug.WriteLine("ERROR :: " + ex.Message); }
+			}
+            return View(detailsViewModel);
         }
     }
 }
