@@ -5,7 +5,11 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rika_WebApp", "Rika_WebApp\Rika_WebApp.csproj", "{36F4353F-66D3-4BD0-8867-023D7AB4DB56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{A728C849-E69A-4868-BE16-D3EFA3D9130A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{A728C849-E69A-4868-BE16-D3EFA3D9130A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductProviderGet", "ProductProviderGet\ProductProviderGet.csproj", "{27AB1DB3-22B7-42E6-B3B8-712B7C052D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductProviderGetTest", "ProductProviderGetTest\ProductProviderGetTest.csproj", "{8B6E9185-2046-46CA-9D7C-1584661C570D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{A728C849-E69A-4868-BE16-D3EFA3D9130A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A728C849-E69A-4868-BE16-D3EFA3D9130A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A728C849-E69A-4868-BE16-D3EFA3D9130A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27AB1DB3-22B7-42E6-B3B8-712B7C052D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27AB1DB3-22B7-42E6-B3B8-712B7C052D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27AB1DB3-22B7-42E6-B3B8-712B7C052D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AB1DB3-22B7-42E6-B3B8-712B7C052D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6E9185-2046-46CA-9D7C-1584661C570D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6E9185-2046-46CA-9D7C-1584661C570D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6E9185-2046-46CA-9D7C-1584661C570D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6E9185-2046-46CA-9D7C-1584661C570D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
