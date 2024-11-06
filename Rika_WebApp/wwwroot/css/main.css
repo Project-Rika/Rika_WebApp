@@ -1,0 +1,84 @@
+﻿.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  background-color: white;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header #nav-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header #nav-menu nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+header #nav-menu nav .menu-link {
+  text-decoration: none;
+}
+header #nav-menu nav .home-icon {
+  display: flex;
+  align-items: center;
+  background-color: #808080;
+  border-radius: 20px;
+  margin-left: 2rem;
+}
+header #nav-menu nav .home-icon i {
+  color: white;
+  background-color: black;
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+header #nav-menu nav .home-icon span {
+  color: black;
+  margin-left: 0.4rem;
+  padding-right: 1rem;
+}
+header #nav-menu nav .home-icon .menu-link {
+  text-decoration: none;
+}
+header #nav-menu nav .nav-icons {
+  display: flex;
+  padding-right: 2rem;
+  color: black;
+}
+@media (max-width: 767px) {
+  header #nav-menu nav .nav-icons {
+    gap: 0.5rem;
+  }
+  header #nav-menu nav .nav-icons span {
+    display: none;
+  }
+}
+header #nav-menu nav .nav-icons .menu-link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding-right: 2rem;
+}
+header #nav-menu nav .nav-icons .menu-link:hover {
+  color: purple;
+}
+header #nav-menu nav .nav-icons .menu-link i {
+  margin-right: 0.5rem;
+}

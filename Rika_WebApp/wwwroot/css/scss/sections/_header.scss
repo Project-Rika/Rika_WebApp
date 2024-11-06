@@ -1,6 +1,14 @@
 ﻿header {
-    background-color: blue;
-    padding: 1rem 0;
+    background-color: white;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px;
 
     .container {
         display: flex;
@@ -9,22 +17,74 @@
     }
 
     #nav-menu {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         nav {
             display: flex;
-            gap: 1rem;
+            justify-content: space-between;
+            width: 100%;
 
             .menu-link {
                 text-decoration: none;
-                color: #000;
+            }
+
+            .home-icon {
                 display: flex;
                 align-items: center;
+                background-color: #808080;
+                border-radius: 20px;
+                margin-left: 2rem;
+
 
                 i {
-                    margin-right: 0.5rem;
+                    color: white;
+                    background-color: black;
+                    padding: 0.8rem;
+                    border-radius: 50%;
                 }
 
-                &:hover {
-                    color: #007bff;
+                span {
+                    color: black;
+                    margin-left: 0.4rem;
+                    padding-right: 1rem;
+                }
+
+                .menu-link {
+                    text-decoration: none;
+                }
+            }
+
+            .nav-icons {
+                display: flex;
+                padding-right: 2rem;
+                color: black;
+
+                @media (max-width: 767px) {
+                    gap: 0.5rem;
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                .menu-link {
+                    text-decoration: none;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    padding-right: 2rem;
+
+
+                    &:hover {
+                        color: purple;
+                    }
+
+                    i {
+                        margin-right: 0.5rem;
+                    }
                 }
             }
         }
