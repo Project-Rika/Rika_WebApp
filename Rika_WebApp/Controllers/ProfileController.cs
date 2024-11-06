@@ -4,7 +4,6 @@ using Rika_WebApp.Models;
 using Rika_WebApp.ViewModels.Profile;
 using System.Diagnostics;
 using System.Text;
-using static System.Net.WebRequestMethods;
 
 namespace Rika_WebApp.Controllers
 {
@@ -26,8 +25,8 @@ namespace Rika_WebApp.Controllers
             var viewModel = new ProfileFormViewModel();
             try
             {
-                userId = "u1"; //ta bort denna sen
-                var response = await _http.GetAsync($"localhost.se/api/GetOneUserAsync?Id={userId}");
+                userId = "1"; //ta bort denna sen
+                var response = await _http.GetAsync($"http://localhost:7177/api/GetOneUserAsync?UserId={userId}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -48,45 +47,46 @@ namespace Rika_WebApp.Controllers
             {
 				try
 				{
-					var userId = "u1"; //ta bort denna sen, ska hämtas från cookie(?)
+					var userId = "1"; //ta bort denna sen, ska hämtas från cookie(?)
                     var updateModel = new UpdateUserModel
                     {
                         UserId = userId,
                         FirstName = detailsViewModel.FirstName,
                         LastName = detailsViewModel.LastName,
                         Email = detailsViewModel.Email,
-                        Password = detailsViewModel.Password,
                         Phonenumber = detailsViewModel.Phonenumber,
                         ProfileImageUrl = detailsViewModel.ProfileImageUrl,
-                        Age = detailsViewModel.Age,
-                        Gender = detailsViewModel.Gender
+                        Age = int.TryParse(detailsViewModel.Age, out int age) ? age : 0
                     };
 
 					var json = new StringContent(JsonConvert.SerializeObject(updateModel), Encoding.UTF8, "application/json");
-					var response = await _http.PostAsync("https://localhost.se/api/UpdateUser", json);
+					var response = await _http.PutAsync("http://localhost:7177/api/UpdateUser", json);
 
-					if (response.IsSuccessStatusCode)
-					{
-						var userData = JsonConvert.DeserializeObject<UpdateUserModel>(await response.Content.ReadAsStringAsync());
-
-                        if (userData != null)
-                        {
-							detailsViewModel.FirstName = userData.FirstName;
-							detailsViewModel.LastName = userData.LastName;
-							detailsViewModel.Email = userData.Email;
-							detailsViewModel.Password = userData.Password;
-							detailsViewModel.Phonenumber = userData.Phonenumber;
-							detailsViewModel.ProfileImageUrl = userData.ProfileImageUrl;
-							detailsViewModel.Age = userData.Age;
-							detailsViewModel.Gender = userData.Gender;
-
-							return View(detailsViewModel);
-						}
-					}
-				}
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction("Details");
+                    }
+                }
 				catch (Exception ex) { Debug.WriteLine("ERROR :: " + ex.Message); }
 			}
             return View(detailsViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteAccount(string userId)
+        {
+            try
+            {
+                userId = "1";
+                var response = await _http.DeleteAsync($"http://localhost:7177/api/DeleteUser?UserId={userId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            catch (Exception ex) { Debug.WriteLine("ERROR :: " + ex.Message); }
+
+            return RedirectToAction("Index");
         }
     }
 }

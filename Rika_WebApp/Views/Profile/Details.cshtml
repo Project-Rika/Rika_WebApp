@@ -23,11 +23,6 @@
                     <input asp-for="@Model.Email" type="email" class="form-control" />
                     <span asp-validation-for="@Model.Email" class="text-danger"></span>
                 </div>
-                <div class="col-md-6">
-                    <label asp-for="@Model.Password" class="form-label"></label>
-                    <input asp-for="@Model.Password" type="password" class="form-control" />
-                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                </div>
 
                 <div class="col-md-6">
                     <label asp-for="@Model.Phonenumber" class="form-label"></label>
@@ -41,26 +36,16 @@
                 </div>
                 <div class="col-md-6">
                     <label asp-for="@Model.Age" class="form-label"></label>
-                    <input asp-for="@Model.Age" type="number" min="1" max="100" class="form-control" />
+                    <input asp-for="@Model.Age" class="form-control" />
                     <span asp-validation-for="@Model.Age" class="text-danger"></span>
-                </div>
-
-                <div class="col-md-12">
-                    <label class="form-label d-block">Gender</label>
-                    <div class="form-check form-check-inline">
-                        <input asp-for="@Model.Gender" class="form-check-input" type="checkbox" value="Male" id="male" />
-                        <label asp-for="@Model.Gender" class="form-check-label" for="male">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input asp-for="@Model.Gender" class="form-check-input" type="checkbox" value="Female" id="female" />
-                        <label asp-for="@Model.Gender" class="form-check-label" for="female">Female</label>
-                    </div>
-                    <span asp-validation-for="@Model.Gender" class="text-danger d-block"></span>
                 </div>
 
                 <div class="col-12 mb-5">
                     <button type="submit" class="btn btn-dark mt-4">Save changes</button>
                 </div>
+            </form>
+            <form asp-action="DeleteAccount" asp-controller="Profile" method="post">
+                <button type="submit" class="btn btn-danger mb-5">Delete Account</button>
             </form>
         </div>
     </div>
