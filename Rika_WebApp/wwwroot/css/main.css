@@ -38,9 +38,14 @@ header #nav-menu nav .menu-link {
 header #nav-menu nav .home-icon {
   display: flex;
   align-items: center;
-  background-color: #808080;
+  background-color: lightgray;
   border-radius: 20px;
-  margin-left: 2rem;
+  margin-left: 1rem;
+}
+@media (min-width: 576px) {
+  header #nav-menu nav .home-icon {
+    margin-left: 2rem;
+  }
 }
 header #nav-menu nav .home-icon i {
   color: white;
@@ -58,8 +63,14 @@ header #nav-menu nav .home-icon .menu-link {
 }
 header #nav-menu nav .nav-icons {
   display: flex;
-  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-right: 1rem;
   color: black;
+}
+@media (min-width: 576px) {
+  header #nav-menu nav .nav-icons {
+    margin-right: 2rem;
+  }
 }
 @media (max-width: 767px) {
   header #nav-menu nav .nav-icons {

@@ -7,7 +7,7 @@
     bottom: 0;
     width: 100%;
     z-index: 10;
-    border-top-left-radius: 30px; 
+    border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 
     .container {
@@ -34,9 +34,14 @@
             .home-icon {
                 display: flex;
                 align-items: center;
-                background-color: #808080;
+                background-color: lightgray;
                 border-radius: 20px;
-                margin-left: 2rem;
+                margin-left: 1rem;
+
+                @media (min-width: 576px) {
+                    margin-left: 2rem;
+                }
+
 
 
                 i {
@@ -59,8 +64,13 @@
 
             .nav-icons {
                 display: flex;
-                padding-right: 2rem;
+                padding-left: 2rem;
+                margin-right: 1rem;
                 color: black;
+
+                @media (min-width: 576px) {
+                    margin-right: 2rem;
+                }
 
                 @media (max-width: 767px) {
                     gap: 0.5rem;
