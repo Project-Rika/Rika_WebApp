@@ -1,5 +1,5 @@
 ﻿header {
-    background-color: white;
+    background-color: #ffffff;
     padding-top: 1rem;
     padding-bottom: 2rem;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
@@ -34,7 +34,7 @@
             .home-icon {
                 display: flex;
                 align-items: center;
-                background-color: lightgray;
+                background-color: #c0c1c2;
                 border-radius: 20px;
                 margin-left: 1rem;
 
@@ -42,17 +42,20 @@
                     margin-left: 2rem;
                 }
 
-
-
                 i {
-                    color: white;
-                    background-color: black;
+                    color: #ffffff;
+                    background-color: #000000;
                     padding: 0.8rem;
                     border-radius: 50%;
+
+                    &:hover {
+                        background-color: #4e4f4f;
+                        transition: 0.2s ease-in;
+                    }
                 }
 
                 span {
-                    color: black;
+                    color: #000000;
                     margin-left: 0.4rem;
                     padding-right: 1rem;
                 }
@@ -82,14 +85,15 @@
 
                 .menu-link {
                     text-decoration: none;
-                    color: black;
+                    color: #000000;
                     display: flex;
                     align-items: center;
                     padding-right: 2rem;
 
 
                     &:hover {
-                        color: purple;
+                        color: #AEAEAE;
+                        transition: 0.2s ease-in;
                     }
 
                     i {
