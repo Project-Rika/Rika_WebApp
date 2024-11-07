@@ -7,9 +7,10 @@ using System.Text;
 
 namespace Rika_WebApp.Controllers
 {
-    public class ProfileController(HttpClient http) : Controller
+    public class ProfileController(HttpClient http, IConfiguration configuration) : Controller
     {
         private readonly HttpClient _http = http;
+        private readonly IConfiguration _configuration = configuration;
 
         [HttpGet]
         [Route("/profile")]
@@ -26,7 +27,7 @@ namespace Rika_WebApp.Controllers
             try
             {
                 userId = "1"; //ta bort denna sen
-                var response = await _http.GetAsync($"http://localhost:7177/api/GetOneUserAsync?UserId={userId}");
+                var response = await _http.GetAsync($"{_configuration["GetOneUserAsync"]}?UserId={userId}&code={_configuration["GetOneUserAsyncApiKey"]}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -60,7 +61,7 @@ namespace Rika_WebApp.Controllers
                     };
 
 					var json = new StringContent(JsonConvert.SerializeObject(updateModel), Encoding.UTF8, "application/json");
-					var response = await _http.PutAsync("http://localhost:7177/api/UpdateUser", json);
+					var response = await _http.PutAsync($"{_configuration["UpdateUser"]}", json);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -78,7 +79,7 @@ namespace Rika_WebApp.Controllers
             try
             {
                 userId = "1";
-                var response = await _http.DeleteAsync($"http://localhost:7177/api/DeleteUser?UserId={userId}");
+                var response = await _http.DeleteAsync($"{_configuration["DeleteUser"]}?UserId={userId}&code={_configuration["DeleteUserApiKey"]}");
                 if (response.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index", "Home");

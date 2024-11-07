@@ -22,12 +22,6 @@ public class ProfileFormViewModel
     [RegularExpression("^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$", ErrorMessage = "Your email address is invalid")]
     public string Email { get; set; } = null!;
 
-    //[Display(Name = "Password", Prompt = "********", Order = 3)]
-    //[DataType(DataType.Password)]
-    //[Required(ErrorMessage = "Invalid password")]
-    //[RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*]).{8,}", ErrorMessage = "Invalid password, must be a strong password")]
-    //public string Password { get; set; } = null!;
-
     [DataType(DataType.Text)]
     [Display(Name = "Phonenumber", Prompt = "Enter your phonenumber", Order = 3)]
     [Required(ErrorMessage = "Invalid phonenumber")]
@@ -44,9 +38,4 @@ public class ProfileFormViewModel
     [Required(ErrorMessage = "Invalid age")]
     [MinLength(1, ErrorMessage = "Invalid age")]
     public string? Age { get; set; }
-
-    //[DataType(DataType.Text)]
-    //[Display(Name = "Gender", Order = 7)]
-    //[Required(ErrorMessage = "Choose a gender")]
-    //public string Gender { get; set; } = null!;
 }
