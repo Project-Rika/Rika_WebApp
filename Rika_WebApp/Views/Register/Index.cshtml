@@ -1,0 +1,58 @@
+﻿@model RegistrationViewModel
+
+<section class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <div class="signup-container card shadow-lg p-4 border-0 bg-white w-100"
+         style="max-width: 400px;">
+        <div class="text-center mb-4">
+            <h1 class="logo-title display-4 fw-bold">RIKA</h1>
+            <p class="logo-subtitle text-muted">Online Shopping</p>
+        </div>
+
+        <div class="signup-form">
+            <h2 class="form-title h3">Sign Up</h2>
+            <p class="subtitle text-secondary mb-4">Create a new account</p>
+
+            <form method="post">
+                <div class="mb-3">
+                    <label for="firstname" class="form-label text-black fs-5 fw-medium">First Name</label>
+                    <input asp-for="FirstName" type="text" id="firstname" class="form-control" placeholder="Enter your first name" />
+                </div>
+                <div class="mb-3">
+                    <label for="lastname" class="form-label text-black fs-5 fw-medium ">Last Name</label>
+                    <input asp-for="LastName" type="text" id="lastname" class="form-control" placeholder="Enter your last name" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label text-black fs-5 fw-medium">Email</label>
+                    <input asp-for="Email" type="email" id="email" class="form-control" placeholder="Enter your email" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label text-black fs-5 fw-medium">Password</label>
+                    <div class="input-group">
+                        <input asp-for="Password" type="password" id="password" class="form-control" placeholder="Enter your password" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirm-password" class="form-label text-black fs-5 fw-medium">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" type="password" id="confirm-password" class="form-control"
+                           placeholder="Confirm your password" />
+                </div>
+
+                <div class="form-check mb-4">
+                    <input type="checkbox" class="form-check-input" id="terms" />
+                    <label class="form-check-label text-secondary " for="terms">
+                        <small>
+                            By creating an account, you agree
+                            with our terms & conditions.
+                        </small>
+
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-dark w-100">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</section>
