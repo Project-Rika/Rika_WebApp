@@ -32,10 +32,10 @@
 }
 
 .my-cart {
-  padding: 1rem 0;
+  padding: 1rem 0 2rem 0;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px);
+  height: calc(100svh - 70px);
 }
 .my-cart .cart-item {
   margin: 0 0.5rem;
@@ -219,4 +219,22 @@ header #nav-menu nav .nav-icons .menu-link:hover {
 }
 header #nav-menu nav .nav-icons .menu-link i {
   margin-right: 0.5rem;
+}
+
+.cart-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+.cart-header button {
+  border: none;
+  background-color: #000000;
+  color: #FFFFFF;
+  width: 20px;
+  height: 20px;
+  padding: 16px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

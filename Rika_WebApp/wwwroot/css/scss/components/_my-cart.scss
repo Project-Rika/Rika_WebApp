@@ -1,8 +1,8 @@
 .my-cart {
-    padding: 1rem 0;
+    padding: 1rem 0 2rem 0;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 100px);
+    height: calc(100svh - 70px);
 
 
     .cart-item {
