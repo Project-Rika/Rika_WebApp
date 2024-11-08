@@ -14,10 +14,25 @@ namespace Rika_WebApp.Controllers
 
         [HttpGet]
         [Route("/profile")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string userId)
         {
-            return View();
-        }
+			var viewModel = new ProfileViewModel();
+			try
+			{
+				userId = "1"; //ta bort denna sen
+				var response = await _http.GetAsync($"{_configuration["GetOneUserAsync"]}?UserId={userId}&code={_configuration["GetOneUserAsyncApiKey"]}");
+
+				if (response.IsSuccessStatusCode)
+				{
+					viewModel = JsonConvert.DeserializeObject<ProfileViewModel>(await response.Content.ReadAsStringAsync());
+
+					return View(viewModel);
+				}
+			}
+			catch (Exception ex) { Debug.WriteLine("ERROR :: " + ex.Message); }
+
+			return View(viewModel);
+		}
 
         [HttpGet]
         [Route("/profile/details")]
