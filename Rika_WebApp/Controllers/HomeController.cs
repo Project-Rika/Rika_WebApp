@@ -8,6 +8,8 @@ namespace Rika_WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+       
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,7 +17,8 @@ namespace Rika_WebApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var product = new ProductViewModel { ArticleNumber = "12345", ProductName = "Jacket", Price = 100 };
+            return View(product);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
