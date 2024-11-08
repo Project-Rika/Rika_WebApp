@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Rika_WebApp.ViewModels.Profile
+@model ProfileViewModel
+@{
 }
 
 <section id="profile">
@@ -12,8 +14,8 @@
         <div class="profile_header">
             <div class="profile-img"></div>
             <div class="profile_name">
-                <h5>Hasan Mahmud</h5>
-                <p>hasan@domain.com</p>
+                <h5>@Model.FirstName @Model.LastName</h5>
+                <p>@Model.Email</p>
             </div>
         </div>
 
