@@ -31,11 +31,10 @@ function addToCart() {
             updateCartCountViewComponent();
         })
         .catch(error => {
-            console.error('Error adding product to cart:', error);
-            alert("Error adding product to cart.");
+            console.error('addToCart', error);
+            alert("Something went wrong, please try again.");
         });
 }
-
 
 function updateCartCountViewComponent() {
     fetch('/cart/updatecartcount', {
@@ -54,6 +53,52 @@ function updateCartCountViewComponent() {
             document.getElementById('cartCountContainer').innerHTML = data;
         })
         .catch(error => {
-            console.error('Error updating cart count view component:', error);
+            console.error('updateCartCountViewComponent', error);
+        });
+}
+
+function updateCartItem(button, change) {
+
+    const cartItem = button.closest('.cart-item');
+    const articleNumber = cartItem.dataset.articleNumber;
+    const quantityElement = cartItem.querySelector('.quantity');
+    let quantity = parseInt(quantityElement.textContent, 10);
+
+    quantity = Math.max(0, quantity + change);
+    quantityElement.textContent = quantity;
+
+    fetch('/cart/updatecartitem', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ArticleNumber: articleNumber, Quantity: quantity })
+    })
+        .then(response => {
+            if (!response.ok) {
+                alert("Something went wrong, please try again.");
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.error) {
+                alert("Something went wrong, please try again.");
+                return;
+            }
+
+            if (data.redirectUrl) {
+                window.location.href = data.redirectUrl;
+                return;
+            }
+            document.getElementById('totalQuantity').textContent = data.totalQuantity;
+            document.getElementById('totalPrice').textContent = data.totalPrice.toFixed(2);
+
+            if (quantity === 0) {
+                document.querySelector(`.cart-item[data-article-number="${articleNumber}"]`).remove();
+            }
+        })
+        .catch(error => {
+            console.error('updateCartItem', error);
+            alert("Something went wrong, please try again.");
         });
 }

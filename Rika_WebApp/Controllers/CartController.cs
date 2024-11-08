@@ -58,17 +58,38 @@ namespace Rika_WebApp.Controllers
             return Json(new { cartCount = cart.Sum(p => p.Quantity) });
         }
 
-
         [HttpPost]
-        public IActionResult EmptyCart()
+        public IActionResult UpdateCartItem([FromBody] CartUpdateModel updateModel)
         {
-            if (Request.Cookies["Cart"] != null)
+            if (Request.Cookies.TryGetValue("Cart", out var cartJson))
             {
-                Response.Cookies.Delete("Cart");
-            }
+                var cart = JsonSerializer.Deserialize<List<CartItemModel>>(cartJson) ?? new List<CartItemModel>();
 
-            return RedirectToAction("Index"); 
-             
+                var cartItem = cart.FirstOrDefault(item => item.ArticleNumber == updateModel.ArticleNumber);
+                if (cartItem != null)
+                {
+                    if (updateModel.Quantity <= 0)
+                    {
+                        cart.Remove(cartItem);
+                    }
+                    else
+                    {
+                        cartItem.Quantity = updateModel.Quantity;
+                    }
+                    var options = new CookieOptions { Expires = DateTimeOffset.UtcNow.AddDays(1) };
+                    Response.Cookies.Append("Cart", JsonSerializer.Serialize(cart), options);
+
+                    if (cart.Count == 0)
+                    {
+                        return Json(new { redirectUrl = Url.Action("Index", "Cart") });
+                    }
+                    var totalQuantity = cart.Sum(p => p.Quantity);
+                    var totalPrice = cart.Sum(p => p.Quantity * p.Price);
+
+                    return Json(new { totalQuantity, totalPrice });
+                }
+            }
+            return Json(new { error = "Item not found in cart" });
         }
 
         public IActionResult UpdateCartCount()

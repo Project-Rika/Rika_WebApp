@@ -226,8 +226,8 @@ header #nav-menu nav .nav-icons .menu-link i {
   display: flex;
   align-items: center;
 }
-.cart-header button {
-  border: none;
+.cart-header a {
+  text-decoration: none;
   background-color: #000000;
   color: #FFFFFF;
   width: 20px;
