@@ -1,7 +1,15 @@
+using Rika_WebApp.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
+
+// Configure strongly typed settings for ApiUris from appsettings.json
+builder.Services.Configure<ApiUris>(builder.Configuration.GetSection("ApiSettings"));
+builder.Services.AddHttpClient();
+
 
 var app = builder.Build();
 

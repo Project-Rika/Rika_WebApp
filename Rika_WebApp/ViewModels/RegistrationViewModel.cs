@@ -25,4 +25,7 @@ public class RegistrationViewModel
     [Compare(nameof(Password), ErrorMessage = "Passwords don't match")]
     [DataType(DataType.Password)]
     public string ConfirmPassword { get; set; } = null!;
+
+    [Required]
+    public bool AgreeToTerms { get; set; }
 }
