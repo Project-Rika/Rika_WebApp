@@ -17,7 +17,7 @@ namespace Rika_WebApp.Controllers
 
         public IActionResult Index()
         {
-            var product = new ProductViewModel { ArticleNumber = "12345", ProductName = "Jacket", Price = 100 };
+            var product = new ProductViewModel { ArticleNumber = "1234567", ProductName = "Jacket", Price = 100 };
             return View(product);
         }
 
