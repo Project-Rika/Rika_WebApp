@@ -16,20 +16,20 @@ public class ProfileFormViewModel
     [MinLength(2, ErrorMessage = "Invalid last name")]
     public string LastName { get; set; } = null!;
 
-    [Display(Name = "Email address", Prompt = "Enter your email address", Order = 2)]
+    [Display(Name = "Email", Prompt = "Enter your email", Order = 2)]
     [DataType(DataType.EmailAddress)]
     [Required(ErrorMessage = "Invalid email address")]
-    [RegularExpression("^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$", ErrorMessage = "Your email address is invalid")]
+    [RegularExpression("^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$", ErrorMessage = "Your email is invalid")]
     public string Email { get; set; } = null!;
 
     [DataType(DataType.Text)]
-    [Display(Name = "Phonenumber", Prompt = "Enter your phonenumber", Order = 3)]
-    [Required(ErrorMessage = "Invalid phonenumber")]
-    [MinLength(5, ErrorMessage = "Invalid phonenumber")]
+    [Display(Name = "Phone", Prompt = "Enter your phone", Order = 3)]
+    [Required(ErrorMessage = "Invalid phone")]
+    [MinLength(5, ErrorMessage = "Invalid phone")]
     public string Phonenumber { get; set; } = null!;
 
     [DataType(DataType.Text)]
-    [Display(Name = "ProfileImageUrl", Prompt = "Enter your ProfileImageUrl", Order = 4)]
+    [Display(Name = "Upload image", Prompt = "Image url", Order = 4)]
     [Required(ErrorMessage = "Invalid ProfileImageUrl")]
     [MinLength(2, ErrorMessage = "Invalid ProfileImageUrl")]
     public string ProfileImageUrl { get; set; } = null!;

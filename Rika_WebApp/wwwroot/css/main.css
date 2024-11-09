@@ -239,6 +239,160 @@ header #nav-menu nav .nav-icons .menu-link i {
   align-items: center;
 }
 
+#personal-details {
+  padding-top: 80px;
+}
+#personal-details .container {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 20px;
+}
+#personal-details .container .user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#personal-details .container .user-info .user-info-form .label-form {
+  font-size: 16px;
+  color: #aaa;
+}
+#personal-details .container .user-info .user-info-form .input-field {
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #DDD;
+  padding: 0.8rem;
+  transition: border-color 0.2s ease;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+#personal-details .container .user-info .user-info-form .input-field:focus {
+  outline: none;
+  border: 1px solid #b4b4b4;
+  border-radius: 5px;
+}
+#personal-details .container .user-info .user-info-form .personal-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+#personal-details .container .user-info .user-info-form .personal-input .label-form {
+  flex-shrink: 0;
+}
+#personal-details .container .user-info .user-info-form .personal-input .input-group {
+  display: flex;
+  width: 100%;
+  max-width: 445px;
+}
+#personal-details .container .user-info .user-info-form .personal-input .input-group .input-field {
+  flex-grow: 1;
+}
+#personal-details .container .user-info .user-info-form .personal-img-form .personal-img {
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background-color: #ccc;
+}
+#personal-details .container .user-info .user-info-form .personal-img-form .upload-image-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  color: #000;
+  background-color: #ebebeb;
+  border: 2px solid #ebebeb;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+}
+#personal-details .container .user-info .user-info-form .personal-img-form .upload-image-btn .personal-img-label {
+  color: #000;
+  font-weight: 600;
+  margin-right: 8px;
+  cursor: pointer;
+}
+#personal-details .container .user-info .user-info-form .personal-img-form .upload-image-btn:hover {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+}
+#personal-details .container .user-info .user-info-form .personal-img-form .upload-image-btn i {
+  font-size: 12px;
+}
+#personal-details .container .user-info .user-info-form .personal-img-form .profile-image-url {
+  display: none;
+  margin-right: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 16px;
+  width: 100%;
+}
+#personal-details .container .user-info .btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+#personal-details .container .settings h5 {
+  font-size: 20px;
+  font-weight: 700;
+}
+#personal-details .container .settings .nav-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 30px 15px;
+}
+#personal-details .container .settings .nav-settings .info_link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
+#personal-details .container .settings .nav-settings .info_link:hover {
+  color: gray;
+}
+#personal-details .container .settings .nav-settings .info_link i {
+  padding: 10px;
+  font-size: 18px;
+}
+#personal-details .container .settings .nav-settings .info_link .first-item i {
+  margin-right: 15px;
+  background-color: #eee;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+}
+#personal-details .container .settings .nav-settings .info_link .fa-toggle-on {
+  font-size: 22px;
+}
+#personal-details .container .signout {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 120px;
+}
+#personal-details .container .signout .btn {
+  width: 100%;
+  display: block;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+}
+#personal-details .container .signout .btn i {
+  font-size: 16px;
+}
+
 @media (min-width: 768px) {
   #profile .container {
     max-width: 60%;
