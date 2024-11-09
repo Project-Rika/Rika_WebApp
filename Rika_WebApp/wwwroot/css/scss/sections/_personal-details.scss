@@ -125,19 +125,22 @@
             }
 
             .nav-settings {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
                 margin-top: 20px;
                 border: 2px solid #ddd;
                 border-radius: 20px;
-                padding: 20px 15px;
+                padding: 30px 15px;
 
                 .info_link {
                     display: flex;
+                    align-items: center;
                     justify-content: space-between;
                     text-decoration: none;
                     color: black;
-                    font-size: 14px;
+                    font-size: 16px;
                     font-weight: 500;
-                    margin-top: 10px;
 
                     &:hover {
                         color: gray;
