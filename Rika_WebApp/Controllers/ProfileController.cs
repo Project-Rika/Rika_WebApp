@@ -80,11 +80,18 @@ namespace Rika_WebApp.Controllers
 
                     if (response.IsSuccessStatusCode)
                     {
-                        return RedirectToAction("Details");
+                        ViewData["StatusMessage"] = "success|User information was updated successfully.";
+                        return View(detailsViewModel);
+                    }
+                    else
+                    {
+                        ViewData["StatusMessage"] = "danger|Unable to update user information. Please try again.";
                     }
                 }
 				catch (Exception ex) { Debug.WriteLine("ERROR :: " + ex.Message); }
 			}
+
+            ViewData["StatusMessage"] = "danger|Unable to update user information. Please enter correct values in form.";
             return View(detailsViewModel);
         }
 

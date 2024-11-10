@@ -26,13 +26,12 @@ public class ProfileFormViewModel
     [Display(Name = "Phone", Prompt = "Enter your phone", Order = 3)]
     [Required(ErrorMessage = "Invalid phone")]
     [MinLength(5, ErrorMessage = "Invalid phone")]
-    public string Phonenumber { get; set; } = null!;
+    public string? Phonenumber { get; set; }
 
     [DataType(DataType.Text)]
     [Display(Name = "Upload image", Prompt = "Image url", Order = 4)]
-    [Required(ErrorMessage = "Invalid ProfileImageUrl")]
     [MinLength(2, ErrorMessage = "Invalid ProfileImageUrl")]
-    public string ProfileImageUrl { get; set; } = null!;
+    public string? ProfileImageUrl { get; set; }
 
     [Display(Name = "Age", Prompt = "Enter your age", Order = 5)]
     [Required(ErrorMessage = "Invalid age")]

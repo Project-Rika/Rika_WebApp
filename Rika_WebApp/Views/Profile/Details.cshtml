@@ -8,6 +8,14 @@
     <div class="container">
         <div class="user-info">          
             <form method="post" asp-controller="Profile" asp-action="Details" class="user-info-form" novalidate>
+                @if (ViewData["StatusMessage"] != null)
+                {
+                    var messageParts = ViewData["StatusMessage"]?.ToString()!.Split('|');
+                    var messageType = messageParts?[0];
+                    var messageText = messageParts?[1];
+
+                    <div id="statusMessage" class="alert alert-@messageType mb-3" role="alert">@messageText</div>
+                }
                 <div class="personal-img-form">
                     <div class="personal-img"></div>
                        
@@ -17,6 +25,7 @@
                     </button>
 
                     <input asp-for="@Model.ProfileImageUrl" class="input-field profile-image-url" />
+                    <span asp-validation-for="@Model.ProfileImageUrl" class="text-danger"></span>
                 </div>
 
                 <div class="personal-input">

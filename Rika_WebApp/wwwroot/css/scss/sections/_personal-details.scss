@@ -34,6 +34,10 @@
                     }
                 }
 
+                .text-danger {
+                    margin-left: 15px;
+                }
+
                 .personal-input {
                     display: flex;
                     align-items: center;
@@ -46,6 +50,7 @@
 
                     .input-group {
                         display: flex;
+                        flex-direction: column;
                         width: 100%;
                         max-width: 445px;
 

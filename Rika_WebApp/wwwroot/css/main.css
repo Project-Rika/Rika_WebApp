@@ -270,6 +270,9 @@ header #nav-menu nav .nav-icons .menu-link i {
   border: 1px solid #b4b4b4;
   border-radius: 5px;
 }
+#personal-details .container .user-info .user-info-form .text-danger {
+  margin-left: 15px;
+}
 #personal-details .container .user-info .user-info-form .personal-input {
   display: flex;
   align-items: center;
@@ -281,6 +284,7 @@ header #nav-menu nav .nav-icons .menu-link i {
 }
 #personal-details .container .user-info .user-info-form .personal-input .input-group {
   display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 445px;
 }
