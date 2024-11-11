@@ -68,9 +68,9 @@
 
                 <button type="submit" class="btn btn-dark mt-4">Save changes</button>
             </form>
-            <form asp-action="DeleteAccount" asp-controller="Profile" method="post">
+@*             <form asp-action="DeleteAccount" asp-controller="Profile" method="post">
                 <button type="submit" class="btn btn-danger mb-5">Delete Account</button>
-            </form>
+            </form> *@
         </div>
 
         <div class="settings">
@@ -96,9 +96,7 @@
         </div>
 
         <div class="signout">
-            <form asp-action="SignOut" asp-controller="Profile" method="post">
-                <button type="submit" class="btn btn-dark"><i class="fa-solid fa-right-from-bracket"></i>  Log Out</button>
-            </form>
+            <button class="btn btn-dark"><i class="fa-solid fa-right-from-bracket"></i>  Log Out</button>
         </div>
     </div>
 </section>
