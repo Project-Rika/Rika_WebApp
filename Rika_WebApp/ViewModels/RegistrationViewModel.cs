@@ -26,6 +26,4 @@ public class RegistrationViewModel
     [DataType(DataType.Password)]
     public string ConfirmPassword { get; set; } = null!;
 
-    [Required]
-    public bool AgreeToTerms { get; set; }
 }

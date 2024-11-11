@@ -1,0 +1,15 @@
+﻿.signup-section {
+    margin-bottom: 90px;
+    .signup-container {
+        max-width: 400px;
+    }
+}
+.error-message {
+    font-size: 0.875em;
+    margin-top: 0.25em;
+}
+
+input.is-invalid {
+    border-color: red;
+}
+

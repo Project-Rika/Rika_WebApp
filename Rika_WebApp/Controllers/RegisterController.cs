@@ -23,19 +23,18 @@ public class RegisterController(IHttpClientFactory httpClientFactory, IOptions<A
     {
         if (!ModelState.IsValid)
         {
-            // Return the view with validation messages if the model is invalid
             return View("Index", model);
         }
 
         try
         {
             // Send the registration data to the CreateUser API
-            var response = await _httpClient.PostAsJsonAsync($"{_apiUris.BaseUrl}{_apiUris.CreateUser}?code={_apiUris.ApiKey}", model);
+            var response = await _httpClient.PostAsJsonAsync($"{_apiUris.BaseUrl}{_apiUris.CreateUserEndpoint}?code={_apiUris.CreateUserApiKey}", model);
 
             if (response.IsSuccessStatusCode)
             {
-                // Redirect to a success page or login page after successful registration
-                return RedirectToAction("Index", "Home");
+                // Redirect to a success page after successful registration
+                return RedirectToAction("Success");
             }
 
             // Add an error to the ModelState if the API call failed
@@ -44,12 +43,16 @@ public class RegisterController(IHttpClientFactory httpClientFactory, IOptions<A
         }
         catch (Exception ex)
         {
-            // Handle unexpected exceptions
             ModelState.AddModelError("", $"An unexpected error occurred: {ex.Message}");
         }
 
         // Return the view with validation messages if API call failed
         return View("Index", model);
+    }
+
+    public IActionResult Success()
+    {
+        return View();
     }
 }
 

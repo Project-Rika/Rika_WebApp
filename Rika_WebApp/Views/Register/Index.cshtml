@@ -1,9 +1,8 @@
 ﻿
 @model RegistrationViewModel
 
-<section class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-    <div class="signup-container card shadow-lg p-4 border-0 bg-white w-100"
-         style="max-width: 400px;">
+<section class="signup-section d-flex justify-content-center align-items-center bg-light">
+    <div class="signup-container card shadow-lg p-5 border-0 bg-white w-100">
         <div class="text-center mb-4">
             <h1 class="logo-title display-4 fw-bold">RIKA</h1>
             <p class="logo-subtitle text-muted">Online Shopping</p>
@@ -30,9 +29,7 @@
 
                 <div class="mb-3">
                     <label for="password" class="form-label text-black fs-5 fw-medium">Password</label>
-                    <div class="input-group">
-                        <input asp-for="Password" type="password" id="password" class="form-control" placeholder="Enter your password" />
-                    </div>
+                    <input asp-for="Password" type="password" id="password" class="form-control" placeholder="Enter your password" />
                 </div>
 
                 <div class="mb-3">
@@ -48,7 +45,6 @@
                             By creating an account, you agree
                             with our terms & conditions.
                         </small>
-                        <span asp-validation-for="AgreeToTerms" class="text-danger"></span>
 
                     </label>
                 </div>
@@ -58,3 +54,4 @@
         </div>
     </div>
 </section>
+ <script src="~/js/resgister-form-validation.js"></script>
